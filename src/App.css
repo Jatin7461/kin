@@ -1,38 +1,95 @@
-.App {
-  text-align: center;
+html,
+body,
+#root,
+.container {
+    width: 100%;
+    height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    overflow: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.images {
+    width: 100%;
+    height: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
 }
 
-.App-link {
-  color: #61dafb;
+
+
+.left-images {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    bottom: 0;
+    margin-left: 2%;
+    margin-bottom: 2%;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.left-images div {
+    width: 100px;
+    height: 100px;
+}
+
+.imageContainer1,
+.imageContainer2,
+.imageContainer3 {
+    width: 100%;
+    height: 100%;
+}
+
+.imageContainer1 .image1,
+.imageContainer2 .image2,
+.imageContainer3 .image3,
+.imageContainer4 .image4,
+.imageContainer5 .image5,
+.imageContainer6 .image6 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image1,
+.image2,
+.image3,
+.image4,
+.image5,
+.image6 {
+    display: none;
+    scale: 1.5;
+}
+
+/* .image1 {
+    scale: 1;
+} */
+
+.loadingscreen {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+}
+
+.firsthalf,
+.secondhalf {
+    background-color: antiquewhite;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    background-color: antiquewhite;
 }
