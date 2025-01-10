@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { useGSAP } from '@gsap/react';
@@ -7,8 +7,14 @@ import gsap from 'gsap';
 import ImageIcons from './Components/ImageIcons';
 import Images from './Components/Images';
 import LoadingScreen from './Components/LoadingScreen';
+import LeftContent from './Components/LeftContent';
+import RightContent from './Components/RightContent';
+import { isModuleNamespaceObject } from 'util/types';
+import SplitType from 'split-type';
 
 function App() {
+
+  const ref: any = useRef()
 
   useGSAP(() => {
     gsap.registerPlugin(Flip)
@@ -20,7 +26,7 @@ function App() {
     const image1 = document.querySelector('.imageContainer1')!
     const image2 = document.querySelector('.imageContainer2')!
     const image3 = document.querySelector('.imageContainer3')!
-    
+
 
     gsap.timeline()
       .to('.firsthalf', {
@@ -74,6 +80,12 @@ function App() {
         scale: 1,
         duration: 1
       })
+      .to('.loadingscreen', {
+        display: 'none'
+      }, '<')
+      .to('.images', {
+        display: 'none'
+      })
 
     setTimeout(() => {
       const imgState1 = Flip.getState('.image1')
@@ -108,27 +120,96 @@ function App() {
         duration: 0.5,
         ease: imageEase
       })
-      // Flip.from(imgState4, {
-      //   delay: 0.2,
-      //   duration: 0.5,
-      //   ease: imageEase
-      // })
-      // Flip.from(imgState5, {
-      //   delay: 0.2,
-      //   duration: 0.5,
-      //   ease: imageEase
-      // })
-      // Flip.from(imgState6, {
-      //   delay: 0.2,
-      //   duration: 0.5,
-      //   ease: imageEase
-      // })
+
+      const middleText = new SplitType('.middle .kin')
+      const topText = new SplitType('.top p')
+
+      gsap.timeline()
+        .from('.navbar div', {
+          yPercent: 50,
+          opacity: 0,
+          // stagger: 0.1,
+          delay: 0.6
+        })
+        .from('.group-image', {
+          xPercent: 10,
+        }, '<')
+        .from('.bottom div', {
+          yPercent: 50,
+          opacity: 0,
+          stagger: 0.1
+        }, '<')
+        .from(middleText.lines, {
+          yPercent: 60,
+          opacity: 0,
+          stagger: 0.1
+        }, '<')
+        .from(topText.chars, {
+          scale: 0.8,
+          stagger: 0.1
+        }, '<')
     }, 6500)
-  })
+
+
+
+
+    const linkAnimation = (className: string) => {
+      const link = new SplitType(`.${className} p`)
+      return gsap.to(link.chars, {
+        yPercent: -100,
+        paused: true,
+        stagger: 0.03,
+        duration: 0.2
+      })
+    }
+
+    let aboutAnimation = linkAnimation('about')
+    let workAnimation = linkAnimation('work')
+    let journalAnimation = linkAnimation('journal')
+    let contactAnimation = linkAnimation('contact')
+
+    const about = document.querySelector('.about')
+    const work = document.querySelector('.work')
+    const journal = document.querySelector('.journal')
+    const contact = document.querySelector('.contact')
+    about?.addEventListener('mouseenter', () => {
+      aboutAnimation.play()
+    })
+
+    about?.addEventListener('mouseleave', () => {
+      aboutAnimation.reverse()
+    })
+
+    work?.addEventListener('mouseover', () => {
+      workAnimation.play()
+    })
+    work?.addEventListener('mouseout', () => {
+      workAnimation.reverse()
+    })
+
+    journal?.addEventListener('mouseover', () => {
+      journalAnimation.play()
+    })
+
+    journal?.addEventListener('mouseout', () => {
+      journalAnimation.reverse()
+    })
+
+    contact?.addEventListener('mouseover', () => {
+      contactAnimation.play()
+    })
+
+    contact?.addEventListener('mouseout', () => {
+      contactAnimation.reverse()
+    })
+
+  }, { scope: ref })
 
   return (
-    <div className='container'>
+    <div ref={ref} className='container'>
       <Images />
+      <LeftContent />
+      <RightContent />
       <ImageIcons />
       <LoadingScreen />
     </div>

@@ -1,3 +1,10 @@
+.unbounded {
+    font-family: "Unbounded", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
 html,
 body,
 #root,
@@ -13,6 +20,9 @@ body {
 .images {
     width: 100%;
     height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 10;
 }
 
 .images img {
@@ -37,8 +47,8 @@ body {
 }
 
 .left-images div {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
 }
 
 .imageContainer1,
@@ -91,5 +101,126 @@ body {
 }
 
 .container {
-    background-color: antiquewhite;
+    background-color: rgb(255, 249, 242);
+    display: flex;
+}
+
+
+.rightcontent {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.rightcontent .nav {
+    flex: 1
+}
+
+.rightcontent .nav .navbar {
+    display: flex;
+    margin-top: 2%;
+    justify-content: space-evenly;
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+
+}
+
+.rightcontent .nav .navbar p {
+    font-size: 2vw;
+    font-weight: 600;
+    /* margin-bottom: 0; */
+    margin: 0;
+    /* cursor: pointer; */
+}
+
+
+.rightcontent .nav .navbar p:hover {
+    cursor: pointer;
+}
+
+.rightcontent .group-image {
+    width: 100%;
+    height: 100%;
+    flex: 1;
+}
+
+.rightcontent .group-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.leftcontent {
+    padding-left: 2%;
+    padding-right: 2%;
+    /* padding-bottom: 2%; */
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+}
+
+.leftcontent .top {
+    font-size: 16vw;
+    font-family: 'unbounded';
+    flex: 1;
+    line-height: 16vw;
+}
+
+.leftcontent .top p {
+    margin: 0;
+    color: rgb(255, 92, 55);
+}
+
+.leftcontent .works {
+    font-size: 0.5vw;
+    margin: 0;
+}
+
+.leftcontent .kin {
+    margin: 0;
+    margin-left: 25%;
+    font-size: 2vw;
+    font-weight: 600;
+}
+
+.leftcontent .featured {
+    display: flex;
+    align-items: start;
+    /* justify-content: space-between; */
+}
+
+
+.leftcontent .bottom {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    font-size: 0.7vw;
+    align-items: end;
+    gap: 100px;
+    margin-bottom: 2%;
+}
+
+.leftcontent .bottom .year {
+    color: grey
+}
+
+.leftcontent .bottom .address {
+    font-weight: bold;
+}
+
+.leftcontent .bottom .links {
+    display: flex;
+    text-transform: uppercase;
+    text-decoration: underline;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.leftcontent .middle {
+    margin-top: 10%;
+    flex: 1;
 }
