@@ -136,6 +136,7 @@ function App() {
           delay: 0.6
         })
         .from('.group-image', {
+          opacity: 0,
           xPercent: 10,
         }, '<')
         .from('.bottom div', {
@@ -149,6 +150,7 @@ function App() {
           stagger: 0.1
         }, '<')
         .from(topText.chars, {
+          opacity: 0,
           scale: 0.8,
           stagger: 0.1
         }, '<')
