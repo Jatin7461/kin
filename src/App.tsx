@@ -29,6 +29,10 @@ function App() {
 
 
     gsap.timeline()
+      .to('.loading', {
+        delay: 2,
+        opacity: 0
+      })
       .to('.firsthalf', {
         delay: 0.7,
         yPercent: -100,
@@ -148,7 +152,7 @@ function App() {
           scale: 0.8,
           stagger: 0.1
         }, '<')
-    }, 6500)
+    }, 9000)
 
 
 
