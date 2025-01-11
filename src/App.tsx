@@ -102,7 +102,7 @@ function App() {
       leftImg3?.appendChild(image3)
       // leftImg3?.appendChild(image6)
 
-      const imageEase = 'power1.in'
+      const imageEase = 'sine.in'
       Flip.from(imgState1, {
         duration: 0.5,
         delay: 0.4,
