@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { Suspense, useRef } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { useGSAP } from '@gsap/react';
@@ -30,7 +30,7 @@ function App() {
 
     gsap.timeline()
       .to('.loading', {
-        delay: 2,
+        delay: 3,
         opacity: 0
       })
       .to('.firsthalf', {
@@ -154,7 +154,7 @@ function App() {
           scale: 0.8,
           stagger: 0.1
         }, '<')
-    }, 9000)
+    }, 10000)
 
 
 
@@ -213,7 +213,9 @@ function App() {
 
   return (
     <div ref={ref} className='container'>
-      <Images />
+      <Suspense>
+        <Images />
+      </Suspense>
       <LeftContent />
       <RightContent />
       <ImageIcons />
