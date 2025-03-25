@@ -11,6 +11,9 @@ import LeftContent from './Components/LeftContent';
 import RightContent from './Components/RightContent';
 import { isModuleNamespaceObject } from 'util/types';
 import SplitType from 'split-type';
+import MobileTop from './Components/MobileTop';
+import MobileMiddle from './Components/MobileMiddle';
+import MobileBottom from './Components/MobileBottom';
 
 function App() {
 
@@ -154,6 +157,10 @@ function App() {
           scale: 0.8,
           stagger: 0.1
         }, '<')
+        .from('.menu', {
+          opacity: 0,
+          yPercent: -50
+        }, '<')
     }, 10000)
 
 
@@ -217,6 +224,9 @@ function App() {
         <Images />
       </Suspense>
       <LeftContent />
+      <MobileTop />
+      <MobileMiddle />
+      <MobileBottom />
       <RightContent />
       <ImageIcons />
       <LoadingScreen />
