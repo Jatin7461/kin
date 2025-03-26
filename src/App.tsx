@@ -129,6 +129,7 @@ function App() {
       })
 
       const middleText = new SplitType('.middle .kin')
+      const mobileMiddleText = new SplitType('.mobile-middle .kin')
       const topText = new SplitType('.top p')
 
       gsap.timeline()
@@ -147,7 +148,7 @@ function App() {
           opacity: 0,
           stagger: 0.1
         }, '<')
-        .from(middleText.lines, {
+        .from([middleText.lines, mobileMiddleText.lines], {
           yPercent: 60,
           opacity: 0,
           stagger: 0.1
@@ -160,6 +161,11 @@ function App() {
         .from('.menu', {
           opacity: 0,
           yPercent: -50
+        }, '<')
+        .from('.middle-content div', {
+          yPercent: 50,
+          opacity: 0,
+          stagger: 0.1
         }, '<')
     }, 10000)
 
